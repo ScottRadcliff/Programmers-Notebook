@@ -7,4 +7,4 @@ tmp/
 
 # Ignore git swap files
 **/.*.sw*
-config/.routes.rb.swp
+**/**/**/*.sw*
