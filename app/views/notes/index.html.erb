@@ -1,2 +1,7 @@
-<h1>I want to <span id="search">...</span></h1>
+<%= form_for @note do |f| -%>
+  <%= f.text_field :title, :id => "note_search" %>
+<% end -%>
+
 <%= link_to "Add some code", new_note_path %>
+
+<div id="results"></div>

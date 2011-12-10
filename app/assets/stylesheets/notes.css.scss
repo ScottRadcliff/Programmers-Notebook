@@ -2,3 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#note_search {
+  width: 500px;
+  height: 29px;
+  border-radius: 16px;
+  border: 1px solid #CCC;
+  outline: none;
+  font: bold 20px helvetica;
+  color: #CCC;
+  padding-left: 10px;  
+}

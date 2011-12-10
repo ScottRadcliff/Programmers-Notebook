@@ -1,8 +1,12 @@
 class NotesController < ApplicationController
   
   def index
+    @note = Note.new
   end
 
+  def search
+    
+  end
 
   def new
       

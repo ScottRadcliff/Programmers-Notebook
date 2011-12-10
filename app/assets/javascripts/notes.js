@@ -24,15 +24,16 @@ $(document).ready(function() {
       }
     });  
 
-    note_content.addEventListener("blur", function() {
-      note.content = this.value;
-    });
+    note_content.addEventListener("blur", function() { note.content = this.value });
   } 
 
   if(note_form_submit) note_form_submit.addEventListener("click", sendForm);
 
 });
 
+// Send the data to the server from the note object
+// Builds and displays a notice if successful, and resets
+// the fields to prepare for another entry
 var sendForm = function(){
   $(".notice").remove();
   $.ajax({
@@ -51,6 +52,9 @@ var sendForm = function(){
   })
 };
 
+// Creates a span element that holds the title
+// that was created, and inserts it into the DOM
+// where the original element was
 var createTitle = function() {
   var element = document.createElement("span");
   element.setAttribute('id', 'note_title');
@@ -58,6 +62,7 @@ var createTitle = function() {
   note.title = this.value;
   this.parentNode.replaceChild(element, this);
 };
+
 
 var createHandlerForNoteTitle = function() {
   document.getElementById("note_title").addEventListener("click", function() {
