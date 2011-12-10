@@ -1,7 +1,7 @@
 <%= form_for @note do |f| -%>
-  <%= f.text_field :title, :id => "note_search" %>
+  <%= f.text_field :title, :id => "note_search", :autocomplete => "off" %>
 <% end -%>
 
 <%= link_to "Add some code", new_note_path %>
 
-<div id="results"></div>
+<div id="result"></div>

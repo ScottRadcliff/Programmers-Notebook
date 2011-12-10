@@ -4,6 +4,7 @@ ProgrammersNotebook::Application.routes.draw do
    root :to => 'notes#index'
    resources :notes
    match 'notes/create' => 'notes#create'
+   match 'notes/search/:title' => 'notes#search'
   
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

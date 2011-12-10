@@ -4,8 +4,10 @@
 var note_content = document.getElementById("note_content");
 var note_title = document.getElementById("note_title"); 
 var note_form_submit = document.getElementById("note_form_submit");
+var search = document.getElementById("note_search");
 var place_holder_text = "I Just Do ...";
 var note = {};
+
 $(document).ready(function() {
 
   if(note_title) {
@@ -28,7 +30,7 @@ $(document).ready(function() {
   } 
 
   if(note_form_submit) note_form_submit.addEventListener("click", sendForm);
-
+  if(search) search.addEventListener("keyup", getResults);
 });
 
 // Send the data to the server from the note object
@@ -42,7 +44,7 @@ var sendForm = function(){
     type: "POST",
     success: function(data) {
       if(data === "true") {
-        var messageBox = $("<div class='notice'>Code added!</div>");
+        var messageBox = $("<div class='alert-message success'>Code added!</div>");
         $("h1").before(messageBox);
         note_content.value = place_holder_text;
         setEllipsis();
@@ -79,3 +81,20 @@ var createHandlerForNoteTitle = function() {
 var setEllipsis = function() {
   document.getElementById('note_title').innerHTML = "...";
 }
+
+// Grabs matching titles from the server
+var getResults = function() {
+  var value = this.value;
+  if(value !== "") {
+      $.getJSON("/notes/search/" + value, function(data) {
+    var result = $("#result");
+    result.html("");
+    $.each(data, function() {
+      result.append("<h1>" + this.title + "</h1><pre>" + this.content + "</pre>");
+    });
+  });
+  }
+
+};
+
+

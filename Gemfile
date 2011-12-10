@@ -18,6 +18,8 @@ gem 'jquery-rails'
 gem 'mongoid'
 gem 'redcarpet' 
 gem 'bson_ext'
+gem 'mongoid_fulltext'
+
 group :test do
   gem 'rspec-rails'
 end

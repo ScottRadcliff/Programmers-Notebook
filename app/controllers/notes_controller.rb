@@ -1,11 +1,13 @@
 class NotesController < ApplicationController
-  
+  respond_to :json
+
   def index
     @note = Note.new
   end
 
   def search
-    
+    @notes = Note.fulltext_search(params[:title])
+    respond_with @notes
   end
 
   def new
