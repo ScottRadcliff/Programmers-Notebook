@@ -3,6 +3,7 @@ ProgrammersNotebook::Application.routes.draw do
   # first created -> highest priority.
    root :to => 'notes#index'
    resources :notes
+   match 'notes/create' => 'notes#create'
   
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

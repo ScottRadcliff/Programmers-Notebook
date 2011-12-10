@@ -16,4 +16,11 @@ describe NotesController do
     end
   end
 
+  describe "#create" do
+    it "creates a new record" do
+      post :create, :title => "Something", :content => "Some content"
+      response.code.should eq("200")
+    end
+  end
+
 end
