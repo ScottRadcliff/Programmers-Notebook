@@ -19,6 +19,7 @@ gem 'mongoid'
 gem 'redcarpet' 
 gem 'bson_ext'
 gem 'mongoid_fulltext'
+gem 'coderay'
 
 group :test do
   gem 'rspec-rails'

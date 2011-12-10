@@ -12,3 +12,15 @@
   color: #CCC;
   padding-left: 10px;  
 }
+
+
+// Syntax Highlighting
+.code {
+  color: #333;
+  .keyword {
+    color: #06f;
+  }
+  .function {
+    color: #69f;
+  }
+}

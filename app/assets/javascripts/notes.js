@@ -90,7 +90,7 @@ var getResults = function() {
     var result = $("#result");
     result.html("");
     $.each(data, function() {
-      result.append("<h1>" + this.title + "</h1><pre>" + this.content + "</pre>");
+      result.append("<h1>" + this.title + "</h1>" + this.content );
     });
   });
   }

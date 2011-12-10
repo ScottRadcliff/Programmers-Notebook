@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  require 'coderay'
   respond_to :json
 
   def index
@@ -7,6 +8,9 @@ class NotesController < ApplicationController
 
   def search
     @notes = Note.fulltext_search(params[:title])
+    @notes.each do |n|
+      n.content = CodeRay.scan(n.content, :ruby).div(:css => :class)
+    end
     respond_with @notes
   end
 
