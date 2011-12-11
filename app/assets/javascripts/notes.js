@@ -37,7 +37,7 @@ $(document).ready(function() {
 // Builds and displays a notice if successful, and resets
 // the fields to prepare for another entry
 var sendForm = function(){
-  $(".notice").remove();
+  $(".alert-message").remove();
   $.ajax({
     url: "/notes/create",
     data: {title: note.title, content: note.content},
@@ -92,6 +92,7 @@ var getResults = function() {
     $.each(data, function() {
       result.append("<h1>" + this.title + "</h1>" + this.content );
     });
+    if (data.length > 0) result.append("<a href='/notes/all'>View All</a>");
   });
   }
 

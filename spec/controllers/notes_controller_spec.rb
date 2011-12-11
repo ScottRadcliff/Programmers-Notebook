@@ -32,4 +32,12 @@ describe NotesController do
     end
   end
 
+  describe "#all" do
+    it "returns all notes" do
+      5.times {Note.create!(:title => "Title", :content => "content")}
+      get :all
+      assigns(:notes).should_not be_nil
+    end
+  end
+
 end

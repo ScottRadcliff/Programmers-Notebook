@@ -26,4 +26,8 @@ class NotesController < ApplicationController
       render :text => false
     end
   end
+
+  def all
+    @notes = Note.all
+  end
 end
