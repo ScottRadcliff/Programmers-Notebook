@@ -14,10 +14,6 @@ class NotesController < ApplicationController
     respond_with @notes
   end
 
-  def new
-      
-  end
-
   def create
     @note = Note.new(title: params[:title], content: params[:content])
     if @note.save

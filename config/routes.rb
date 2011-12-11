@@ -2,10 +2,10 @@ ProgrammersNotebook::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
    root :to => 'notes#index'
-   resources :notes
    match 'notes/create' => 'notes#create'
    match 'notes/search/:title' => 'notes#search'
    match 'notes/all' => 'notes#all'
+   resources :notes
   
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

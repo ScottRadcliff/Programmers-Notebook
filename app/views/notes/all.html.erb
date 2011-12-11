@@ -1,0 +1,4 @@
+<% @notes.each do |n| %>  
+  <h1><%= n.title %></h1>
+  <%= CodeRay.scan(n.content, :ruby).div(:css => :class).html_safe %>
+<% end -%>
