@@ -1,10 +1,14 @@
 // Notes.js
 // TODO: find a way to extract calling document.getElementById on note_title
 // multiple times
-var note_content = document.getElementById("note_content");
-var note_title = document.getElementById("note_title"); 
-var note_form_submit = document.getElementById("note_form_submit");
-var search = document.getElementById("note_search");
+
+//  Tired of typing document.getElementbyId
+var elem = function(id) {return document.getElementById(id)};
+
+var note_content = elem("note_content");
+var note_title = elem("note_title"); 
+var note_form_submit = elem("note_form_submit");
+var search = elem("note_search");
 var place_holder_text = "I Just Do ...";
 var note = {};
 
@@ -67,7 +71,7 @@ var createTitle = function() {
 
 
 var createHandlerForNoteTitle = function() {
-  document.getElementById("note_title").addEventListener("click", function() {
+  note_title.addEventListener("click", function() {
       var title_text_box = "<input type='text' id='note_title_text_box' />";
       if (this.value !== '...') {
         $(this).replaceWith(title_text_box);
@@ -79,7 +83,7 @@ var createHandlerForNoteTitle = function() {
 };
 
 var setEllipsis = function() {
-  document.getElementById('note_title').innerHTML = "...";
+  note_title.innerHTML = "...";
 }
 
 // Grabs matching titles from the server
