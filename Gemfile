@@ -25,6 +25,7 @@ group :test do
   gem 'rspec-rails'
   gem 'cucumber-rails'
   gem 'database_cleaner'
+  gem 'launchy'
 end
 
 
