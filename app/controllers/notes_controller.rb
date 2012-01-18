@@ -1,4 +1,4 @@
-class NotesController < ApplicationController
+ class NotesController < ApplicationController
   require 'coderay'
   respond_to :json
 
