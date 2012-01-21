@@ -20,6 +20,7 @@ gem 'redcarpet'
 gem 'bson_ext'
 gem 'mongoid_fulltext'
 gem 'coderay'
+gem 'awesome_print'
 
 group :test do
   gem 'rspec-rails'

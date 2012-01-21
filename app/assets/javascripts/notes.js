@@ -6,7 +6,10 @@
 var elem = function(id) {return document.getElementById(id)};
 
 var note_content = elem("note_content");
-var note_title = elem("note_title"); 
+
+//var note_title = elem("note_title"); 
+var note_title = elem("task"); 
+
 var note_form_submit = elem("note_form_submit");
 var search = elem("note_search");
 var place_holder_text = "I Just Do ...";
@@ -14,10 +17,10 @@ var note = {};
 
 $(document).ready(function() {
 
-  if(note_title) {
-    setEllipsis();
-    createHandlerForNoteTitle();
-  }
+  // if(note_title) {
+  //   setEllipsis();
+  //   createHandlerForNoteTitle();
+  // }
 
   if(note_content) {
     note_content.value = place_holder_text;
@@ -41,6 +44,7 @@ $(document).ready(function() {
 // Builds and displays a notice if successful, and resets
 // the fields to prepare for another entry
 var sendForm = function(){
+  note.title = note_title.value;
   $(".alert-message").remove();
   $.ajax({
     url: "/notes/create",
@@ -51,8 +55,8 @@ var sendForm = function(){
         var messageBox = $("<div class='alert-message success'>Code added!</div>");
         $("h1").before(messageBox);
         note_content.value = place_holder_text;
-        setEllipsis();
-        createHandlerForNoteTitle();
+        // setEllipsis();
+        //createHandlerForNoteTitle();
       }
     }
   })
@@ -61,26 +65,26 @@ var sendForm = function(){
 // Creates a span element that holds the title
 // that was created, and inserts it into the DOM
 // where the original element was
-var createTitle = function() {
-  var element = document.createElement("span");
-  element.setAttribute('id', 'note_title');
-  element.innerHTML = this.value;
-  note.title = this.value;
-  this.parentNode.replaceChild(element, this);
-};
+// var createTitle = function(e) {
+//   var element = document.createElement("span");
+//   element.setAttribute('id', 'note_title');
+//   element.innerHTML = this.value;
+//   note.title = this.value;
+//   this.parentNode.replaceChild(element, this);
+// };
 
 
-var createHandlerForNoteTitle = function() {
-  note_title.addEventListener("click", function() {
-      var title_text_box = "<input type='text' id='note_title_text_box' />";
-      if (this.value !== '...') {
-        $(this).replaceWith(title_text_box);
-        var $note_title_text_box = $("#note_title_text_box");
-        $note_title_text_box.focus();
-        document.getElementById("note_title_text_box").addEventListener("blur", createTitle);
-      };
-    });
-};
+// var createHandlerForNoteTitle function() {
+//   note_title.addEventListener("click", function() {
+//       var title_text_box = "<input type='text' id='note_title_text_box' />";
+//       if (this.value !== '...') {
+//         $(this).replaceWith(title_text_box);
+//         var $note_title_text_box = $("#note_title_text_box");
+//         $note_title_text_box.focus();
+//         document.getElementById("note_title_text_box").addEventListener("blur", createTitle);
+//       };
+//     });
+// };
 
 var setEllipsis = function() {
   note_title.innerHTML = "...";
