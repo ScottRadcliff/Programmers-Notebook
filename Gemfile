@@ -27,6 +27,7 @@ group :test do
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'launchy'
+  gem 'jasmine'
 end
 
 
