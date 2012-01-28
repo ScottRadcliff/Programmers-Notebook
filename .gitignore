@@ -9,3 +9,8 @@ tmp/
 **/.*.sw*
 **/**/**/*.sw*
 .*.swp
+
+
+# Ignore tork log files
+features/*.*.log
+spec/**/*.*.log

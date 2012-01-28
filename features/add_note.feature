@@ -9,6 +9,3 @@ Feature: Add a note with a snippet
     Given I am on the notes page
     And I enter a new note
     Then I should see "Code added!"
-    
-
-

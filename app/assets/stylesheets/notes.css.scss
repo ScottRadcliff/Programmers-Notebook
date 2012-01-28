@@ -39,6 +39,7 @@ button a, button a:hover {
   color: #fff;
   text-decoration: none;
 }
+
 // New code button
 #new_code_button {
   float: right;
@@ -49,6 +50,8 @@ button a, button a:hover {
   width: 600px;
   height: 300px;
   font-size: 18px;
+  display: block;
+  margin-top: 10px;
 }
 
 #note_title_text_box {

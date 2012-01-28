@@ -28,6 +28,7 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'jasmine'
+  gem 'tork'
 end
 
 
