@@ -3,7 +3,7 @@ db/*.sqlite3
 log/*.log
 tmp/
 .sass-cache/
-
+.DS_STORE
 
 # Ignore git swap files
 **/.*.sw*
@@ -13,4 +13,5 @@ tmp/
 
 # Ignore tork log files
 features/*.*.log
+features/**/*.*.log
 spec/**/*.*.log
