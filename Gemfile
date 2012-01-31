@@ -29,6 +29,9 @@ group :test do
   gem 'launchy'
   gem 'jasmine'
   gem 'tork'
+  gem 'guard'
+  gem 'guard-cucumber'
+  gem 'guard-rspec'
 end
 
 
