@@ -6,6 +6,7 @@ ProgrammersNotebook::Application.routes.draw do
   match 'notes/create' => 'notes#create'
   match 'notes/search/:title' => 'notes#search'
   match 'notes/all' => 'notes#all'
+  match 'admin' => 'notes#new'
   resources :notes
 
   # Sample of regular route:
