@@ -12,7 +12,7 @@ describe NotesController do
   describe "New note" do
     it "loads the new form" do
       get :new
-      response.code.should eq("200")
+     response.should redirect_to('/login')
     end
   end
 

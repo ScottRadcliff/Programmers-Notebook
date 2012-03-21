@@ -15,3 +15,6 @@ tmp/
 features/*.*.log
 features/**/*.*.log
 spec/**/*.*.log
+
+# Ignore my personal dev_notes
+doc/dev_notes
