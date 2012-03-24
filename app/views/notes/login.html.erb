@@ -1,4 +1,7 @@
-<%= form_tag "/login" %>
-   <%= label_tag :password, "Password:" %>
-    <%= text_field_tag :password %>
-     <%= submit_tag "Login" %>
+
+  <div class="span8" id="login">
+    <h1>Open Says Me!</h1>
+    <%= form_tag "/login" %>
+      <%= text_field_tag :password %>
+      <%= submit_tag "Login" %>
+    </div>
