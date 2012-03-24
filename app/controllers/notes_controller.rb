@@ -47,7 +47,22 @@
     end
   end
 
+  # Returns all code snippets for view and editing
   def all
-    @notes = Note.all
+    @notes = Note.order_by([:title, :desc])
+  end
+
+  def edit
+    @note = Note.find(params[:id])
+  end
+
+  def update
+    @note = Note.find(params[:id])
+    if @note.update_attributes!(params[:note])
+      flash[:notice] = "Updated Successfully"
+      redirect_to :action => :all
+    else
+      logger.debug "Updating #{@note.id} failed."
+    end
   end
 end

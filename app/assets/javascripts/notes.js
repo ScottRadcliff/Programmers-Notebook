@@ -12,7 +12,7 @@ var note_title = elem("task");
 
 var note_form_submit = elem("note_form_submit");
 var search = elem("note_search");
-var place_holder_text = "I Just Do ...";
+// var place_holder_text = "I Just Do ...";
 var note = {};
 
 $(document).ready(function() {

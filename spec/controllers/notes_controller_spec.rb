@@ -19,7 +19,7 @@ describe NotesController do
   describe "#create" do
     it "creates a new record" do
       post :create, :title => "Something", :content => "Some content"
-      response.code.should eq("200")
+      response.code.should eq("302") # Just a redirect. Pretty dumb test
     end
   end
 
@@ -37,6 +37,14 @@ describe NotesController do
       5.times {Note.create!(:title => "Title", :content => "content")}
       get :all
       assigns(:notes).should_not be_nil
+    end
+  end
+
+  describe "#update" do
+    it "updates a note" do
+      note =  Note.create!(title: "Something", content: "Something else")
+      post :update, :id => note.id, :note => {title: "Foo", content: "Something else too"}
+      assigns(:note).title.should == "Foo"
     end
   end
 
