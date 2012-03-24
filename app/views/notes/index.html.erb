@@ -3,6 +3,8 @@
   <%= f.text_field :title, :id => "note_search", :autocomplete => "off" %>
 <% end -%>
 
-<button class="btn success" id="new_code_button"><%= link_to "Looking to add some code?", new_note_path %></button>
+<% if session[:user] %>
+  <button class="btn success" id="new_code_button"><%= link_to "Looking to add some code?", new_note_path %></button>
+<% end -%>
 
 <div id="result"></div>
