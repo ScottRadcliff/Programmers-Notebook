@@ -2,12 +2,6 @@ require 'spec_helper'
 
 describe NotesController do
 
-  describe "Index" do
-    it "loads the the index page" do
-      get :index
-      response.code.should eq("200")
-    end
-  end
 
   describe "New note" do
     it "loads the new form" do
@@ -34,15 +28,18 @@ describe NotesController do
 
   describe "#all" do
     it "returns all notes" do
+      Note.delete_all
       5.times {Note.create!(:title => "Title", :content => "content")}
+      session[:user] = true
       get :all
-      assigns(:notes).should_not be_nil
+      assigns(:notes).count.should == 5
     end
   end
 
   describe "#update" do
     it "updates a note" do
       note =  Note.create!(title: "Something", content: "Something else")
+      session[:user] = true
       post :update, :id => note.id, :note => {title: "Foo", content: "Something else too"}
       assigns(:note).title.should == "Foo"
     end

@@ -1,7 +1,7 @@
  class NotesController < ApplicationController
   require 'coderay'
   respond_to :json
-  before_filter :is_logged_in?, :only => [:new, :create]
+  before_filter :is_logged_in?, :only => [:new, :create, :all, :edit, :update]
 
   def is_logged_in?
     if session[:user]
