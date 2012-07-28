@@ -22,15 +22,15 @@ describe NotesController do
       Note.create!(:title => "Using nginx")
       get :search, :title => "ng"
       notes = assigns(:notes)
-      notes.should_not be_nil
+      notes.should_not be_nil # TODO: check the array for "Using nginx"
     end
   end
 
   describe "#all" do
     it "returns all notes" do
-      Note.delete_all
+      Note.delete_all # Make sure we have a clean slate
       5.times {Note.create!(:title => "Title", :content => "content")}
-      session[:user] = true
+      session[:user] = true # Need a valid session for user auth
       get :all
       assigns(:notes).count.should == 5
     end
@@ -39,7 +39,7 @@ describe NotesController do
   describe "#update" do
     it "updates a note" do
       note =  Note.create!(title: "Something", content: "Something else")
-      session[:user] = true
+      session[:user] = true # Auth fix
       post :update, :id => note.id, :note => {title: "Foo", content: "Something else too"}
       assigns(:note).title.should == "Foo"
     end
